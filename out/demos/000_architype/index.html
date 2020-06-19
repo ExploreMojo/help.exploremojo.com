@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,900&display=swap" rel="stylesheet">
+  <script src="libs/preloadjs.1.0.1.min.js"></script>
+  <script src="libs/gsap.min.js"></script>
+  <script src="libs/mojo.0.8.0.js"></script>
+  <script src="xray.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      window.comp1 = new mojo.MojoFusionPlayer({
+        id: 'comp1',
+        // debug: true, 
+        scenes: [
+          { 
+            id: 'default', 
+            path: 'default', 
+            iframe: false, 
+            width: 900, 
+            height: 300,
+            fit: true, 
+            center: true,
+            plugins: [
+              // {id: 'visualDebugger', options: {centerV: true}},
+            ]
+          },
+        ]
+      });
+      comp1.loadScene('default');
+      xray(window.comp1);
+    });
+  </script>
+
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      min-height: 100vh;
+    }
+
+    body {
+      background-color: #FFF;
+    }
+
+    * {
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .mockup-wrapper {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+
+    #comp1 {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #FFF;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="mockup-wrapper">
+    <div id="comp1"></div>
+  </div>
+  
+</body>
+
+</html>
