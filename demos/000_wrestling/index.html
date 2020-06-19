@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+  <html lang="">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
+    <script src="mojo.0.8.0.js"></script>
+    </head>
+  <body>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  input, select, textarea, form {
+    outline: none;
+  }
+  div.scene {
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  /*
+  div.scene > .content > * {
+    position: absolute;
+    pointer-events: all;
+  }
+  */
+  div.scene * {
+    position: absolute;
+    pointer-events: all;
+  }
+  svg * {
+    position: inherit;
+  }
+  div[xd-type="Group"] {
+    background-color: rgba(255,255,255,.3);
+  }
+
+  
+        .composition {
+          width: 800px;
+          height: 600px;
+        }
+        #scene_wrestling {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  background-color: #fff;
+}
+#guid_2c6342d3_0132_4771_92fa_33778875832f {
+  width: 800px;
+  height: 601px;
+  transform: translate(0px, 0px);
+}
+#guid_72b58f74_fc71_4d75_a353_7be91a230393 {
+  width: 415.301px;
+  height: 545.806px;
+  transform: translate(318.91px, 53.136px);
+}
+#guid_f8676d4b_56b4_4d84_b30a_ea786d4ac49a {
+  width: 406.351px;
+  height: 545.042px;
+  transform: translate(90.344px, 56.958px);
+}
+#guid_25cb17e8_b85f_4eb3_8e90_4bdb31f49e4c {
+  width: 772px;
+  height: 546px;
+  transform: translate(116px, 53px);
+}
+#guid_57d71db3_863b_475a_abb4_243bed5c9a0c {
+  overflow: visible;
+  transform: translate(-579.36px, -228.703px);
+  opacity: 0;
+}
+#guid_2dd3a917_b0e6_4979_a2c0_34f467c67bd5 {
+  width: 772px;
+  height: 546px;
+  transform: translate(-100px, 53px);
+}
+#guid_18c2190d_53c6_43fa_8514_fcd86b77887f {
+  overflow: visible;
+  transform: translate(-509.042px, -228.393px);
+  opacity: 0;
+}
+
+      
+  </style>
+  
+        <div class="composition">
+          
+<div id="scene_wrestling" class="artboard scene" ><div class="content" style="perspective: 800px">
+<img id="guid_2c6342d3_0132_4771_92fa_33778875832f" src="guid_2c6342d3_0132_4771_92fa_33778875832f.jpg" >
+
+<img id="guid_72b58f74_fc71_4d75_a353_7be91a230393" src="guid_72b58f74_fc71_4d75_a353_7be91a230393.png" >
+
+<img id="guid_f8676d4b_56b4_4d84_b30a_ea786d4ac49a" src="guid_f8676d4b_56b4_4d84_b30a_ea786d4ac49a.png" >
+
+<img id="guid_25cb17e8_b85f_4eb3_8e90_4bdb31f49e4c" src="guid_25cb17e8_b85f_4eb3_8e90_4bdb31f49e4c.png" mojo-fx-glitch-easel="{trigger: 'hover', factor: 8, duration: 700}" >
+
+<svg id="guid_57d71db3_863b_475a_abb4_243bed5c9a0c" width="1" height="1" mojo-trigger-area ><path id="guid_57d71db3_863b_475a_abb4_243bed5c9a0c-path" d="M 1292.723 828.410 L 1312.692 768.199 L 1305.053 655.622 L 1289.353 621.827 L 1267.289 541.606 L 1249.476 515.314 L 1222.001 496.683 L 1154.159 476.254 L 1117.926 456.086 L 1114.719 413.549 L 1122.966 386.802 L 1112.280 346.786 L 1093.544 306.753 L 1059.745 291.052 L 1023.325 294.582 L 991.595 320.513 L 978.355 357.070 L 981.072 396.976 L 981.072 435.188 L 994.526 490.327 L 967.846 512.006 L 965.159 526.327 L 942.263 538.036 L 930.419 567.965 L 926.147 597.202 L 935.328 652.630 L 930.419 709.544 L 923.425 747.957 L 904.563 796.361 L 899.149 828.410 L 1175.884 828.410 L 1183.299 768.199 L 1212.879 709.544 L 1238.161 753.959 L 1212.879 828.410 L 1292.723 828.410 Z"
+                           fill="#b7005c"  stroke-width="1"
+                            />
+</svg>
+<img id="guid_2dd3a917_b0e6_4979_a2c0_34f467c67bd5" src="guid_2dd3a917_b0e6_4979_a2c0_34f467c67bd5.png" mojo-fx-glitch-easel="{trigger: 'hover', factor: 8, duration: 700}" >
+
+<svg id="guid_18c2190d_53c6_43fa_8514_fcd86b77887f" width="1" height="1" mojo-trigger-area ><path id="guid_18c2190d_53c6_43fa_8514_fcd86b77887f-path" d="M 1002.858 828.099 L 1000.553 790.517 L 1000.553 769.409 L 998.232 743.315 L 988.155 716.422 L 977.511 694.282 L 975.373 642.903 L 967.475 612.312 L 972.167 579.505 L 967.475 555.776 L 947.152 520.649 L 875.968 481.363 L 872.050 353.819 L 859.270 311.164 L 825.400 289.734 L 799.274 289.734 L 762.979 303.134 L 735.641 333.454 L 737.808 378.528 L 735.641 425.784 L 728.874 434.051 L 728.874 421.002 L 716.902 417.763 L 701.315 442.892 L 701.315 410.670 L 687.294 410.670 L 681.021 423.588 L 664.903 423.588 L 651.619 447.061 L 632.161 457.436 L 627.381 466.846 L 623.924 484.948 L 627.381 491.633 L 623.924 500.018 L 618.778 503.203 L 623.924 542.953 L 603.666 579.505 L 600.639 616.682 L 614.100 639.095 L 639.704 642.903 L 651.619 634.443 L 662.315 628.747 L 671.000 634.443 L 678.087 681.840 L 678.087 748.308 L 671.000 795.933 L 667.827 828.099 L 921.603 828.099 L 914.220 814.764 L 911.096 775.310 L 901.304 754.132 L 908.132 677.685 L 921.603 728.701 L 924.018 772.194 L 949.639 828.099 L 1002.858 828.099 Z"
+                           fill="#5000be"  stroke-width="1"
+                            />
+</svg>
+</div></div>
+        </div>
+      
+
+  <script>
+
+
+    //---
+    // Scene
+    var Scene = function(id, element, timeline) {
+      this.id = id;
+      this.element = element;
+      this.timeline = timeline;
+    };
+
+    //---
+    // MojoOld
+    var MojoOld = function() {
+      this._listeners = [];
+      this._scenes = [];
+    }
+    MojoOld.prototype.emit = function (type, payload) {
+      var listeners = this._listeners.filter(function(item) {return item.type == type});
+      listeners.forEach(function(listener) {
+        listener.func();
+      });
+    }
+    MojoOld.prototype.on = function (type, func) {
+      this._listeners.push({type: type, func: func});
+    }
+    MojoOld.prototype.addScene = function (scene) {
+      this._scenes.push(scene);
+    }
+    MojoOld.prototype.getScene = function (id) {
+      for (var i=0; i<this._scenes.length; i++) {
+        var scene = this._scenes[i];
+        if (scene.id == id) return scene;
+      }
+    }
+
+    //---
+    // Namespace
+    var mojons = window.mojons = {
+      MojoOld: MojoOld,
+      Scene: Scene
+    };
+
+    //---
+    // MojoOld Instance
+    var mojoOld = window.mojoOld = new MojoOld();
+
+
+
+
+
+    function mojoInit() {
+      
+
+      //---
+      // Scene: scene_wrestling
+      (function() {
+        var tl = new TimelineMax();
+        
+        var scene = new mojons.Scene('scene_wrestling', document.getElementById('scene_wrestling'), tl);
+        mojoOld.addScene(scene);
+      
+      })();
+      
+      var firstSceneId = mojoOld._scenes[0].id;
+      mojoOld.getScene(firstSceneId).element.style.visibility = "visible";
+      mojoOld.emit('ready', {mojo: mojoOld});
+    }
+
+    setTimeout(mojoInit, 200);
+  </script>
+
+
+  <!-- Responsive Scaling (v2) -->
+  <script>
+    (function() {
+
+      //---
+      // Responsive composition resizing
+      var composition = document.querySelector('.composition');
+      var contentWidth = parseInt(window.getComputedStyle(composition).width);
+      var contentHeight = parseInt(window.getComputedStyle(composition).height);
+
+      function fit() {
+        var availableWidth = composition.parentNode.clientWidth;
+        var availableHeight = composition.parentNode.clientHeight;
+        var scale = Math.min(availableWidth / contentWidth, availableHeight / contentHeight);
+        scale = (scale > 1) ? 1 : scale;
+        var newWidth = contentWidth * scale;
+        var newHeight = contentHeight * scale;
+
+        var toX = (availableWidth - newWidth) / 2 / scale;
+        var toY = (availableHeight - newHeight) / 2 / scale;
+
+        composition.style.transformOrigin = '0 0';
+        composition.style.transform = 'scale(' + scale + ') translate('+toX+'px, '+toY+'px)';
+      }
+
+      // window.addEventListener('resize', fit);
+      // fit();
+
+
+
+
+      //---
+      // IFrame auto size
+      var iframe = window.frameElement;
+      var maxHeight;
+      function adjustFrame() {
+        var availableWidth = iframe.clientWidth;
+        console.log('availableWidth:', availableWidth);
+        console.log('maxHeight:', maxHeight);
+
+        var scale = Math.min(availableWidth / contentWidth, maxHeight / contentHeight);
+        scale = (scale > 1) ? 1 : scale;
+        var newWidth = contentWidth * scale;
+        var newHeight = contentHeight * scale;
+
+        console.log('> newWidth: ', newWidth);
+        console.log('> newHeight: ', newHeight);
+
+        iframe.setAttribute('height', newHeight);
+        iframe.style.display = 'block';
+      }
+
+      if (iframe) {
+        console.log('');
+        console.log('iframe detected');
+        maxHeight = iframe.getAttribute('height');
+      }
+
+
+      function onResize() {
+        if (iframe) adjustFrame();
+        fit();
+      }
+      window.addEventListener('resize', onResize);
+      onResize();
+
+    })();
+  </script>
+  
+  <script>
+    // Init effects
+    mojo.fx.FxScanner.scan(document.body);
+  </script>
+
+  <script src="index.preview.js"></script>
+
+  </body>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html, body {
+        padding: 0;
+        margin: 0;
+        font-family: Arial;
+        font-size: 0.9em;
+      }
+      #top-controls {
+        position: absolute;
+        top: 0; right: 0; left: 0;
+        height: 20px;
+        background-color: lightgrey;
+      }
+      #stage-wrapper {
+        position: absolute;
+        top: 20px; right: 0; bottom: 0; left: 0;
+        overflow: hidden;
+        background-color: white;
+      }
+      iframe#stage {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
+    <title>Preview</title>
+  </head>
+  <body>
+    <div id="top-controls">
+      Preview
+    </div>
+    <div id="stage-wrapper">
+      <iframe id="stage"></iframe>
+    </div>
+
+  <script>
+  //---
+  // Load iframe with nocache
+  var stage = document.getElementById('stage');
+  stage.src = "index.html?nocache="+Math.round(Math.random()*1000000000000000);
+
+  //---
+  // Preview Auto Reload
+  setInterval(()=>{
+    window.___lastPreviewId = window.___previewId;
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    s.src = "preview.js?nocache="+Math.round(Math.random()*100000000000000000);
+    document.body.append(s);
+
+    s.addEventListener('load', function() {
+      if (window.___lastPreviewId && window.___previewId != window.___lastPreviewId) {
+        console.log('RELOAD 2.1');
+        // location.reload(true);
+        stage.src = "index.html?nocache="+Math.round(Math.random()*1000000000000000);
+      }
+    });
+  }, 2000);
+
+  </script>
+  </body>

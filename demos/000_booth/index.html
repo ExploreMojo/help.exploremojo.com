@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+  <html lang="">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
+    <script src="mojo.0.8.0.js"></script>
+    </head>
+  <body>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  input, select, textarea, form {
+    outline: none;
+  }
+  div.scene {
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  /*
+  div.scene > .content > * {
+    position: absolute;
+    pointer-events: all;
+  }
+  */
+  div.scene * {
+    position: absolute;
+    pointer-events: all;
+  }
+  svg * {
+    position: inherit;
+  }
+  div[xd-type="Group"] {
+    background-color: rgba(255,255,255,.3);
+  }
+
+  
+        .composition {
+          width: 800px;
+          height: 600px;
+        }
+        #scene_booth_glitch {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  background-color: #f5f5f5;
+}
+#guid_76a1e7e5_89d0_462e_9b25_9460ec4cc76a {
+  width: 1066px;
+  height: 600px;
+  transform: translate(-133px, 0px);
+}
+#guid_c74d34ad_9c80_4c90_a7d9_1d4144ade822 {
+  width: 56px;
+  height: 56px;
+  transform: translate(211px, 252px);
+}
+#guid_2320f008_faa0_46a2_af7b_89610fea08b8 {
+  width: 56px;
+  height: 56px;
+  transform: translate(525px, 308px);
+}
+#guid_8e6c9127_7d22_4c08_91e3_2002cba554e3 {
+  width: 154px;
+  height: 86px;
+  transform: translate(403px, 163px);
+}
+#guid_ad19bf3a_4d24_4fe4_b58f_fa3b78dcb881 {
+  width: 56px;
+  height: 56px;
+  transform: translate(372px, 135px);
+}
+
+      
+  </style>
+  
+        <div class="composition">
+          
+<div id="scene_booth_glitch" class="artboard scene" mojo-fx-magnet="{scale: 1.05}" ><div class="content" style="perspective: 800px">
+<img id="guid_76a1e7e5_89d0_462e_9b25_9460ec4cc76a" src="guid_76a1e7e5_89d0_462e_9b25_9460ec4cc76a.jpg" >
+
+<img id="guid_c74d34ad_9c80_4c90_a7d9_1d4144ade822" src="guid_c74d34ad_9c80_4c90_a7d9_1d4144ade822.png" mojo-fx-magnet mojo-fx-hand-cursor >
+
+<img id="guid_2320f008_faa0_46a2_af7b_89610fea08b8" src="guid_2320f008_faa0_46a2_af7b_89610fea08b8.png" mojo-fx-magnet mojo-fx-hand-cursor >
+
+<img id="guid_8e6c9127_7d22_4c08_91e3_2002cba554e3" src="guid_8e6c9127_7d22_4c08_91e3_2002cba554e3.png" mojo-fx-glitch-easel="{trigger: 'auto', delay: 1000, repeat: -1, repeatDelay: 2000, yoyo: true}" >
+
+<img id="guid_ad19bf3a_4d24_4fe4_b58f_fa3b78dcb881" src="guid_ad19bf3a_4d24_4fe4_b58f_fa3b78dcb881.png" mojo-fx-magnet mojo-fx-hand-cursor >
+
+</div></div>
+        </div>
+      
+
+  <script>
+
+
+    //---
+    // Scene
+    var Scene = function(id, element, timeline) {
+      this.id = id;
+      this.element = element;
+      this.timeline = timeline;
+    };
+
+    //---
+    // MojoOld
+    var MojoOld = function() {
+      this._listeners = [];
+      this._scenes = [];
+    }
+    MojoOld.prototype.emit = function (type, payload) {
+      var listeners = this._listeners.filter(function(item) {return item.type == type});
+      listeners.forEach(function(listener) {
+        listener.func();
+      });
+    }
+    MojoOld.prototype.on = function (type, func) {
+      this._listeners.push({type: type, func: func});
+    }
+    MojoOld.prototype.addScene = function (scene) {
+      this._scenes.push(scene);
+    }
+    MojoOld.prototype.getScene = function (id) {
+      for (var i=0; i<this._scenes.length; i++) {
+        var scene = this._scenes[i];
+        if (scene.id == id) return scene;
+      }
+    }
+
+    //---
+    // Namespace
+    var mojons = window.mojons = {
+      MojoOld: MojoOld,
+      Scene: Scene
+    };
+
+    //---
+    // MojoOld Instance
+    var mojoOld = window.mojoOld = new MojoOld();
+
+
+
+
+
+    function mojoInit() {
+      
+
+      //---
+      // Scene: scene_booth_glitch
+      (function() {
+        var tl = new TimelineMax();
+        
+        tl.call(function() {
+// Hide overflow
+$('.composition').css('overflow', 'hidden');
+
+}, {tl: tl}, null, 0);
+            
+        var scene = new mojons.Scene('scene_booth_glitch', document.getElementById('scene_booth_glitch'), tl);
+        mojoOld.addScene(scene);
+      
+      })();
+      
+      var firstSceneId = mojoOld._scenes[0].id;
+      mojoOld.getScene(firstSceneId).element.style.visibility = "visible";
+      mojoOld.emit('ready', {mojo: mojoOld});
+    }
+
+    setTimeout(mojoInit, 200);
+  </script>
+
+
+  <!-- Responsive Scaling (v2) -->
+  <script>
+    (function() {
+
+      //---
+      // Responsive composition resizing
+      var composition = document.querySelector('.composition');
+      var contentWidth = parseInt(window.getComputedStyle(composition).width);
+      var contentHeight = parseInt(window.getComputedStyle(composition).height);
+
+      function fit() {
+        var availableWidth = composition.parentNode.clientWidth;
+        var availableHeight = composition.parentNode.clientHeight;
+        var scale = Math.min(availableWidth / contentWidth, availableHeight / contentHeight);
+        scale = (scale > 1) ? 1 : scale;
+        var newWidth = contentWidth * scale;
+        var newHeight = contentHeight * scale;
+
+        var toX = (availableWidth - newWidth) / 2 / scale;
+        var toY = (availableHeight - newHeight) / 2 / scale;
+
+        composition.style.transformOrigin = '0 0';
+        composition.style.transform = 'scale(' + scale + ') translate('+toX+'px, '+toY+'px)';
+      }
+
+      // window.addEventListener('resize', fit);
+      // fit();
+
+
+
+
+      //---
+      // IFrame auto size
+      var iframe = window.frameElement;
+      var maxHeight;
+      function adjustFrame() {
+        var availableWidth = iframe.clientWidth;
+        console.log('availableWidth:', availableWidth);
+        console.log('maxHeight:', maxHeight);
+
+        var scale = Math.min(availableWidth / contentWidth, maxHeight / contentHeight);
+        scale = (scale > 1) ? 1 : scale;
+        var newWidth = contentWidth * scale;
+        var newHeight = contentHeight * scale;
+
+        console.log('> newWidth: ', newWidth);
+        console.log('> newHeight: ', newHeight);
+
+        iframe.setAttribute('height', newHeight);
+        iframe.style.display = 'block';
+      }
+
+      if (iframe) {
+        console.log('');
+        console.log('iframe detected');
+        maxHeight = iframe.getAttribute('height');
+      }
+
+
+      function onResize() {
+        if (iframe) adjustFrame();
+        fit();
+      }
+      window.addEventListener('resize', onResize);
+      onResize();
+
+    })();
+  </script>
+  
+  <script>
+    // Init effects
+    mojo.fx.FxScanner.scan(document.body);
+  </script>
+
+  <script src="index.preview.js"></script>
+
+  </body>

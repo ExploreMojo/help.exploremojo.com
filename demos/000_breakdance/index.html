@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+  <html lang="">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.createjs.com/1.0.0/easeljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
+    <script src="mojo.0.8.0.js"></script>
+    </head>
+  <body>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  input, select, textarea, form {
+    outline: none;
+  }
+  div.scene {
+    overflow: hidden;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  /*
+  div.scene > .content > * {
+    position: absolute;
+    pointer-events: all;
+  }
+  */
+  div.scene * {
+    position: absolute;
+    pointer-events: all;
+  }
+  svg * {
+    position: inherit;
+  }
+  div[xd-type="Group"] {
+    background-color: rgba(255,255,255,.3);
+  }
+
+  
+        .composition {
+          width: 800px;
+          height: 600px;
+        }
+        #scene_breakdance {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  background-color: #fff;
+}
+#guid_73c23cfb_e5a9_4e6d_889e_f53647cde815 {
+  width: 1085px;
+  height: 610px;
+  transform: translate(-116px, -10px);
+}
+#guid_c512bc53_6ad5_4ad1_b4c2_f7b2a991a7ba {
+  width: 880px;
+  height: 496px;
+  transform: translate(-31px, 52px);
+}
+#guid_065b1559_7232_4797_9915_a7c1fb83e567 {
+  overflow: visible;
+  transform: translate(-183px, -36px);
+  opacity: 0;
+}
+
+      
+  </style>
+  
+        <div class="composition">
+          
+<div id="scene_breakdance" class="artboard scene" ><div class="content" style="perspective: 800px">
+<img id="guid_73c23cfb_e5a9_4e6d_889e_f53647cde815" src="guid_73c23cfb_e5a9_4e6d_889e_f53647cde815.jpg" >
+
+<img id="guid_c512bc53_6ad5_4ad1_b4c2_f7b2a991a7ba" src="guid_c512bc53_6ad5_4ad1_b4c2_f7b2a991a7ba.png" mojo-fx-glitch-easel >
+
+<svg id="guid_065b1559_7232_4797_9915_a7c1fb83e567" width="1" height="1" mojo-trigger-area ><path id="guid_065b1559_7232_4797_9915_a7c1fb83e567-path" d="M 549.074 106.203 L 590.238 159.250 L 625.508 268.105 L 704.426 296.777 L 736.641 283.262 L 748.109 292.402 L 748.109 317.898 L 726.387 351.543 L 704.426 355.652 L 696.078 340.738 L 683.578 340.738 L 704.426 375.754 L 689.691 416.891 L 614.141 432.047 L 577.641 443.453 L 584.582 485.852 L 577.641 531.148 L 596.434 542.340 L 532.586 542.340 L 568.746 518.469 L 559.988 470.402 L 514.855 461.375 L 495.480 452.891 L 487.184 416.891 L 455.305 393.078 L 437.234 360.953 L 455.305 340.738 L 482.316 351.543 L 476 325.141 L 455.305 283.262 L 437.234 249.125 L 403.207 232.410 L 403.207 203.922 L 426.777 215.832 L 445.340 232.410 L 476 278.609 L 514.855 355.652 L 604.035 360.953 L 609.836 351.543 L 596.434 340.738 L 542.055 159.250 L 506.344 168.672 L 476 181.914 L 468.977 168.672 L 506.344 130.980 L 549.074 106.203 Z"
+                           fill="#ce00ff"  stroke-width="1"
+                            />
+</svg>
+</div></div>
+        </div>
+      
+
+  <script>
+
+
+    //---
+    // Scene
+    var Scene = function(id, element, timeline) {
+      this.id = id;
+      this.element = element;
+      this.timeline = timeline;
+    };
+
+    //---
+    // MojoOld
+    var MojoOld = function() {
+      this._listeners = [];
+      this._scenes = [];
+    }
+    MojoOld.prototype.emit = function (type, payload) {
+      var listeners = this._listeners.filter(function(item) {return item.type == type});
+      listeners.forEach(function(listener) {
+        listener.func();
+      });
+    }
+    MojoOld.prototype.on = function (type, func) {
+      this._listeners.push({type: type, func: func});
+    }
+    MojoOld.prototype.addScene = function (scene) {
+      this._scenes.push(scene);
+    }
+    MojoOld.prototype.getScene = function (id) {
+      for (var i=0; i<this._scenes.length; i++) {
+        var scene = this._scenes[i];
+        if (scene.id == id) return scene;
+      }
+    }
+
+    //---
+    // Namespace
+    var mojons = window.mojons = {
+      MojoOld: MojoOld,
+      Scene: Scene
+    };
+
+    //---
+    // MojoOld Instance
+    var mojoOld = window.mojoOld = new MojoOld();
+
+
+
+
+
+    function mojoInit() {
+      
+
+      //---
+      // Scene: scene_breakdance
+      (function() {
+        var tl = new TimelineMax();
+        
+        var scene = new mojons.Scene('scene_breakdance', document.getElementById('scene_breakdance'), tl);
+        mojoOld.addScene(scene);
+      
+      })();
+      
+      var firstSceneId = mojoOld._scenes[0].id;
+      mojoOld.getScene(firstSceneId).element.style.visibility = "visible";
+      mojoOld.emit('ready', {mojo: mojoOld});
+    }
+
+    setTimeout(mojoInit, 200);
+  </script>
+
+
+  <!-- Responsive Scaling (v2) -->
+  <script>
+    (function() {
+
+      //---
+      // Responsive composition resizing
+      var composition = document.querySelector('.composition');
+      var contentWidth = parseInt(window.getComputedStyle(composition).width);
+      var contentHeight = parseInt(window.getComputedStyle(composition).height);
+
+      function fit() {
+        var availableWidth = composition.parentNode.clientWidth;
+        var availableHeight = composition.parentNode.clientHeight;
+        var scale = Math.min(availableWidth / contentWidth, availableHeight / contentHeight);
+        scale = (scale > 1) ? 1 : scale;
+        var newWidth = contentWidth * scale;
+        var newHeight = contentHeight * scale;
+
+        var toX = (availableWidth - newWidth) / 2 / scale;
+        var toY = (availableHeight - newHeight) / 2 / scale;
+
+        composition.style.transformOrigin = '0 0';
+        composition.style.transform = 'scale(' + scale + ') translate('+toX+'px, '+toY+'px)';
+      }
+
+      // window.addEventListener('resize', fit);
+      // fit();
+
+
+
+
+      //---
+      // IFrame auto size
+      var iframe = window.frameElement;
+      var maxHeight;
+      function adjustFrame() {
+        var availableWidth = iframe.clientWidth;
+        console.log('availableWidth:', availableWidth);
+        console.log('maxHeight:', maxHeight);
+
+        var scale = Math.min(availableWidth / contentWidth, maxHeight / contentHeight);
+        scale = (scale > 1) ? 1 : scale;
+        var newWidth = contentWidth * scale;
+        var newHeight = contentHeight * scale;
+
+        console.log('> newWidth: ', newWidth);
+        console.log('> newHeight: ', newHeight);
+
+        iframe.setAttribute('height', newHeight);
+        iframe.style.display = 'block';
+      }
+
+      if (iframe) {
+        console.log('');
+        console.log('iframe detected');
+        maxHeight = iframe.getAttribute('height');
+      }
+
+
+      function onResize() {
+        if (iframe) adjustFrame();
+        fit();
+      }
+      window.addEventListener('resize', onResize);
+      onResize();
+
+    })();
+  </script>
+  
+  <script>
+    // Init effects
+    mojo.fx.FxScanner.scan(document.body);
+  </script>
+
+  <script src="index.preview.js"></script>
+
+  </body>

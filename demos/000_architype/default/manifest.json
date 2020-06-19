@@ -1,0 +1,7 @@
+{
+  "path": "default/",
+  "manifest": [
+    { "id": "html", "src": "markup.html"},
+    { "id": "script", "src": "script.js", "type": "text"}
+  ]
+}
